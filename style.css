@@ -8,7 +8,7 @@ body {
 }
 
 table {
-    width: 60%;
+    width: 50vw;
     border-collapse: collapse;
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -34,19 +34,23 @@ th {
 }
 
 td {
-    background-color: #fff;
     padding: 12px;
     text-align: center;
     font-size: 1rem;
     border-bottom: 1px solid #ddd;
 }
 
+/* Cores alternadas nas linhas da tabela */
+tr:nth-child(odd) {
+    background-color: #ffffff; /* Branco para as linhas ímpares */
+}
+
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #f2f2f2; /* Cinza claro para as linhas pares */
 }
 
 tr:hover {
-    background-color: #f1f1f1;
+    background-color: #adecff85;
 }
 
 tfoot {
@@ -54,13 +58,13 @@ tfoot {
     color: white;
     text-align: left;
     font-weight: bold;
-    padding: 15px; /* Ajuste do padding */
+    padding: 15px;
 }
 
 tfoot th {
     padding: 12px;
     text-align: left;
-    font-size: 1rem; /* Ajuste do tamanho da fonte */
+    font-size: 1rem;
 }
 
 #totalPanoramicas, #totalpagamento {
