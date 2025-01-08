@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panorâmicas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <table>
+        <caption>Panorâmicas 2024</caption>
+        <thead>
+            <tr>
+                <th scope="col">Dia</th>
+                <th scope="col">Mês</th>
+                <th scope="col">Quantidade de Panorâmicas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01</td>
+                <td>Novembro</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>05</td>
+                <td>Novembro</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>06</td>
+                <td>Novembro</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>08</td>
+                <td>Novembro</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Novembro</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Novembro</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Novembro</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Novembro</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Novembro</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Novembro</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Novembro</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Novembro</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Novembro</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Novembro</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>Novembro</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>Novembro</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>Dezembro</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>05</td>
+                <td>Dezembro</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>06</td>
+                <td>Dezembro</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>07</td>
+                <td>Dezembro</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>09</td>
+                <td>Dezembro</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Dezembro</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Dezembro</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Dezembro</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Dezembro</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Dezembro</td>
+                <td>3</td>
+            </tr>
+            
+        </tbody>
+        <tfoot>
+                <tr>
+                    <th colspan="2">Total de Panorâmicas por Mês</th>
+                    <th id="totalPanoramicas">0</th>
+                </tr>
+                <tr >
+                    <th colspan="2">Pagamento por Mês</th>
+                    <th id="totalpagamento">0</th>
+                </tr>        
+        </tfoot>
+    </table>
+    <table>
+        <caption>Panoramicas 2025</caption>
+        <thead>
+            <tr>
+                <th scope="col">Dia</th>
+                <th scope="col">Mês</th>
+                <th scope="col">Quantidade de Panorâmicas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>07</td>
+                <td>Janeiro</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                    <th colspan="2">Total de Panorâmicas por Mês</th>
+                    <th id="totalPanoramicas">0</th>
+                </tr>
+                <tr >
+                    <th colspan="2">Pagamento por Mês</th>
+                    <th id="totalpagamento">0</th>
+                </tr>    
+        </tfoot>
+    </table>
+
+    <script>
+        // Função para calcular o total de panorâmicas e o pagamento por mês em uma tabela específica
+        function calcularTotalPanoramicasPorMes(tabela) {
+            const linhas = tabela.querySelectorAll('tbody tr');
+            const resumoMeses = {}; // Objeto para armazenar o total por mês
+    
+            // Percorrer todas as linhas e somar os valores da segunda coluna por mês
+            linhas.forEach(linha => {
+                const mes = linha.querySelector('td:nth-child(2)').innerText; // Usar o nome do mês diretamente
+                const quantidade = parseInt(linha.querySelector('td:nth-child(3)').innerText) || 0;
+    
+                // Somar as panorâmicas por mês
+                if (!resumoMeses[mes]) {
+                    resumoMeses[mes] = { quantidade: 0, pagamento: 0 };
+                }
+                resumoMeses[mes].quantidade += quantidade;
+                resumoMeses[mes].pagamento += quantidade * 10; // 10 reais por panorâmica
+            });
+    
+            // Atualizar os totais de panorâmicas e pagamento por mês
+            let totalTexto = "";
+            let pagamentoTexto = "";
+    
+            for (const [mes, valores] of Object.entries(resumoMeses)) {
+                totalTexto += `${mes}: ${valores.quantidade} panorâmicas\n`;
+                pagamentoTexto += `${mes}: ${valores.pagamento} R$\n`;
+            }
+    
+            // Atualizar o rodapé com o total de panorâmicas por mês
+            tabela.querySelector('tfoot #totalPanoramicas').innerText = totalTexto;
+    
+            // Exibir o pagamento por mês
+            tabela.querySelector('tfoot #totalpagamento').innerText = pagamentoTexto;
+        }
+    
+        // Função para calcular os totais de panorâmicas e pagamento para ambas as tabelas
+        function calcularTotais() {
+            // Selecionar as duas tabelas
+            const tabela1 = document.querySelector('table:nth-of-type(1)');
+            const tabela2 = document.querySelector('table:nth-of-type(2)');
+    
+            // Calcular os totais para cada tabela
+            calcularTotalPanoramicasPorMes(tabela1);
+            calcularTotalPanoramicasPorMes(tabela2);
+        }
+    
+        // Chama a função quando a página carregar
+        window.onload = calcularTotais;
+    </script>
+    
+</body>
+</html>
